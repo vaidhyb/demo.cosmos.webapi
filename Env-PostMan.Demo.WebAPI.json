@@ -1,0 +1,16 @@
+{
+  "id": "1b125205-8898-627f-5d26-d395e8ed3ec2",
+  "name": "Env-Demo.Cosmos.WebAPI",
+  "values": [
+    {
+      "enabled": true,
+      "key": "APIBaseURL",
+      "value": "http://localhost:90",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1501722034480,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-08-03T01:02:44.257Z",
+  "_postman_exported_using": "Postman/5.1.3"
+}
