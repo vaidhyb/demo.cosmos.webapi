@@ -30,7 +30,8 @@ namespace Demo.Cosmos.WebAPI
             this.My_DocumentClient = new DocumentClient(new Uri(this.CosmosDB_EndpointUri), this.CosmosDB_PrimaryKey);
             this.My_DBHelper = new DBHelper();
         }
-
+		
+		// GET api/<controller>
 		// GET api/<controller>
         public IEnumerable<Family> Get()
         {
