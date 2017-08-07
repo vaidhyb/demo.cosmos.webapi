@@ -48,7 +48,7 @@ namespace Demo.Cosmos.WebAPI
         // GET api/<controller>/5
         public Family Get(string id)
         {
-           id = id + "_test";
+           //id = id + "_test";
            Family result = My_DBHelper.GetFamilyDocumentByID(this.My_DocumentClient, this.CosmosDB_DBName, this.CosmosDB_Collection, id);
             if (result == null)
             {
