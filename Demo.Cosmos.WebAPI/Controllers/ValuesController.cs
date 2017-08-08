@@ -32,7 +32,6 @@ namespace Demo.Cosmos.WebAPI
         }
 		
 		// GET api/<controller>
-		// GET api/<controller>
         public IEnumerable<Family> Get()
         {
             try
