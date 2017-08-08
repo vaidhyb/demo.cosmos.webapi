@@ -47,14 +47,15 @@ namespace Demo.Cosmos.WebAPI
         // GET api/<controller>/5
         public Family Get(string id)
         {
-            try
+           //id = id + "_test";
+           Family result = My_DBHelper.GetFamilyDocumentByID(this.My_DocumentClient, this.CosmosDB_DBName, this.CosmosDB_Collection, id);
+            if (result == null)
             {
-                return My_DBHelper.GetFamilyDocumentByID(this.My_DocumentClient, this.CosmosDB_DBName, this.CosmosDB_Collection, id);
+                var message = string.Format("Record with id = {0} not found", id);
+                throw new HttpResponseException(
+                    Request.CreateErrorResponse(HttpStatusCode.NotFound, message));
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            return result;
         }
 
         // POST api/<controller>
