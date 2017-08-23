@@ -15,7 +15,7 @@ Else {
     Write-Host "variable is null" 
 }
 
-$webConfigPath = $PSScriptRoot + '\Web.config'
+$webConfigPath = $PSScriptRoot + 'C:\inetpub\cosmosdb.webapi\Web.config'
 $webConfig = (Get-Content $webConfigPath) -as [Xml]
 
 
@@ -40,13 +40,4 @@ else {
     $newAppSetting.SetAttribute("key","ServerName");
     $newAppSetting.SetAttribute("value",$serverName);
 }
-
-$root = $webConfig.get_DocumentElement();
-$connectionStringSection = $root.connectionStrings.add.connectionString
-if($connectionStringSection) {
-    $connectionStringSection = $root.connectionStrings.add.connectionString.Replace('{ConnectionString}',$connectionString);
-    $root.connectionStrings.add.connectionString = $connectionStringSection
-}
-
-
 $webConfig.Save($webConfigPath)
