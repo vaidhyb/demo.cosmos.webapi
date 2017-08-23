@@ -15,7 +15,7 @@ Else {
     Write-Host "variable is null" 
 }
 
-$webConfigPath = $PSScriptRoot + 'C:\inetpub\cosmosdb.webapi\Web.config'
+$webConfigPath = 'C:\inetpub\cosmosdb.webapi\Web.config'
 $webConfig = (Get-Content $webConfigPath) -as [Xml]
 
 
