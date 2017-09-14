@@ -43,7 +43,7 @@ else {
 
 
 $appSettingKVHospitalID = $webConfig.configuration.appSettings.add | where {$_.Key -eq 'KeyValutHospitalID'}
-if($appSettingKVHospitalID = ) {
+if($appSettingKVHospitalID) {
     $appSettingKVHospitalID.value = $(hospitalid);
 }
 else {
