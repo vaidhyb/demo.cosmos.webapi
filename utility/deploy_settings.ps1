@@ -40,4 +40,17 @@ else {
     $newAppSetting.SetAttribute("key","ServerName");
     $newAppSetting.SetAttribute("value",$serverName);
 }
+
+
+$appSettingKVHospitalID = $webConfig.configuration.appSettings.add | where {$_.Key -eq 'KeyValutHospitalID'}
+if($appSettingKVHospitalID = ) {
+    $appSettingKVHospitalID.value = $(hospitalid);
+}
+else {
+    $newAppSetting = $webConfig.CreateElement("add")
+    $webConfig.configuration.appSettings.AppendChild($newAppSetting)
+    $newAppSetting.SetAttribute("key","KeyValutHospitalID");
+    $newAppSetting.SetAttribute("value",$(hospitalid));
+}
+
 $webConfig.Save($webConfigPath)
