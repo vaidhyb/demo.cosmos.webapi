@@ -41,7 +41,7 @@ else {
     $newAppSetting.SetAttribute("value",$serverName);
 }
 
-$task1Msg = $env:hospitalid
+$task1Msg = $env:OutputVar
 
 if ($task1Msg)
 {
