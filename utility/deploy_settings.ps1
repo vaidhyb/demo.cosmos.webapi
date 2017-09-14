@@ -1,3 +1,4 @@
+Import-Module "Microsoft.TeamFoundation.DistributedTask.Task.Internal"
 Add-Type -AssemblyName System.Web
 
 $currentServerName = $env:computername
@@ -39,6 +40,17 @@ else {
     $webConfig.configuration.appSettings.AppendChild($newAppSetting)
     $newAppSetting.SetAttribute("key","ServerName");
     $newAppSetting.SetAttribute("value",$serverName);
+}
+
+$task1Msg = Get-TaskVariable $distributedTaskContext "hospitalid"
+
+if ($task1Msg)
+{
+	Write-Output "Value of the message is set and equals to $task1Msg"
+}
+else
+{
+	Write-Output "Value of the message is not set."
 }
 
 <#
