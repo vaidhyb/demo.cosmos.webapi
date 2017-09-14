@@ -1,4 +1,3 @@
-Import-Module "Microsoft.TeamFoundation.DistributedTask.Task.Internal"
 Add-Type -AssemblyName System.Web
 
 $currentServerName = $env:computername
@@ -42,7 +41,7 @@ else {
     $newAppSetting.SetAttribute("value",$serverName);
 }
 
-$task1Msg = Get-TaskVariable $distributedTaskContext "hospitalid"
+$task1Msg = $env:hospitalid
 
 if ($task1Msg)
 {
